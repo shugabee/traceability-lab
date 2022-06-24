@@ -21,12 +21,13 @@ rollbar.log('Hello world!')
 // app.use(express.static(path.join(__dirname, "../public")));
 
 
-app.get('/', (req, res) => {
-    
-    rollbar.info("This is superrrrrr broken");
-    res.sendFile(path.join(__dirname, '/index.html'));
-})
-
+app.get('/errorfunction', () => {
+    try {
+        fakeFunction()
+    } catch (err) {
+        rollbar.error('error')
+    }
+});
 
 const port = process.env.PORT || 4005;
 
