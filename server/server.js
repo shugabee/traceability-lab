@@ -18,13 +18,15 @@ var rollbar = new Rollbar({
 rollbar.log('Hello world!')
 
 
-app.use(express.static(path.join(__dirname, "../public")));
+// app.use(express.static(path.join(__dirname, "../public")));
 
 
 app.get('/', (req, res) => {
-    rollbar.info("This is broken");
+    
+    rollbar.info("This is superrrrrr broken");
     res.sendFile(path.join(__dirname, '/index.html'));
 })
+
 
 const port = process.env.PORT || 4005;
 
